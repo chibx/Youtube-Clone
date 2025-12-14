@@ -11,4 +11,4 @@ export type DefaultItem = {
   icon: Component;
 };
 
-export type MoreFromYT = Omit<Subscription, 'newContent'>
+export type MoreFromYT = Omit<DefaultItem, "newContent">;
