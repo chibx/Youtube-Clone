@@ -1,6 +1,17 @@
+<script setup lang="ts">
+import { SidebarProvider } from '@/components/ui/sidebar';
+import SidebarInset from './components/ui/sidebar/SidebarInset.vue';
+
+</script>
+
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+    <div>
+        <NuxtRouteAnnouncer />
+        <SidebarProvider>
+            <MySidebar />
+            <SidebarInset>
+                <NuxtPage />
+            </SidebarInset>
+        </SidebarProvider>
+    </div>
 </template>
