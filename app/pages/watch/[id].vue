@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+const { id } = useRoute().params;
 </script>
 
 <template>
-    <div></div>
+    <div>Video ID: {{ id }}</div>
 </template>
 
 <style scoped>
