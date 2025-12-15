@@ -1,13 +1,15 @@
-<script setup lang="ts">
-import { SidebarProvider } from "@/components/ui/sidebar";
-import SidebarInset from "./components/ui/sidebar/SidebarInset.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div>
+    <div class="bg-background">
         <NuxtRouteAnnouncer />
         <NuxtLayout>
             <NuxtPage />
         </NuxtLayout>
     </div>
 </template>
+
+<style>
+#__nuxt {
+}
+</style>
