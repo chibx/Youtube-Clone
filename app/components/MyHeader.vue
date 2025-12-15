@@ -4,7 +4,7 @@ import YTLogo from "~/components/svg/YTLogo.vue";
 </script>
 
 <template>
-    <header class="h-[55px] flex gap-10 items-center">
+    <header class="fixed top-0 w-full h-[55px] flex gap-10 items-center">
         <MenuIcon />
         <YTLogo class="h-10 w-20 text-white" />
     </header>
