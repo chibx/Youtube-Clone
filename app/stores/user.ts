@@ -17,9 +17,11 @@ function randomSubscriptions(): Subscription[] {
 }
 
 export const useUser = defineStore("user", () => {
+  const id = ref<string>();
   const subs = ref(randomSubscriptions());
 
   return {
+    id,
     subs,
   };
 });
