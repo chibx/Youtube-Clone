@@ -1,0 +1,50 @@
+<script setup lang="ts">
+import {
+    SidebarGroup,
+    SidebarGroupContent,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { ChevronDownIcon, ChevronRightIcon } from "lucide-vue-next";
+import { forYou } from "~/utils/data";
+
+const [forYouParent] = useAutoAnimate();
+const isForYouExpanded = ref(false);
+const items = computed(() => {
+    return isForYouExpanded.value ? forYou : forYou.slice(0, 3);
+});
+</script>
+
+<template>
+    <SidebarGroup>
+        <SidebarGroupContent>
+            <SidebarMenu ref="forYouParent">
+                <SidebarMenuItem>
+                    <SidebarMenuButton as-child class="p-2.5 py-5">
+                        <NuxtLink to="/feed/you" class="flex items-center gap-5"> You <ChevronRightIcon /> </NuxtLink>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+
+                <SidebarMenuItem v-for="item in items" :key="item.title">
+                    <SidebarMenuButton as-child class="p-2.5 py-5">
+                        <NuxtLink :to="item.url" class="w-full flex items-center gap-2.5 overflow-hidden p-2.5">
+                            <component class="h-7 w-7" :is="item.icon" />
+                            <span>{{ item.title }}</span>
+                        </NuxtLink>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton
+                        class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
+                        @click="isForYouExpanded = !isForYouExpanded"
+                    >
+                        More <ChevronDownIcon :class="{ 'rotate-z-180': isForYouExpanded }" />
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </SidebarGroupContent>
+    </SidebarGroup>
+</template>
+
+<style scoped></style>
