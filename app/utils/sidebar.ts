@@ -1,6 +1,6 @@
 export type Subscription = {
-  title: string;
-  url: string;
+  name: string;
+  channelId: string;
   imageUrl: string;
   newContent: boolean;
 };

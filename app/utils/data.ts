@@ -15,6 +15,7 @@ import YTKidsIcon from "~/components/svg/YTKidsIcon.vue";
 import YTMusicIcon from "~/components/svg/YTMusicIcon.vue";
 import YTPremiumIcon from "~/components/svg/YTPremiumIcon.vue";
 import YTStudioIcon from "~/components/svg/YTStudioIcon.vue";
+import type { DefaultItem, MoreFromYT } from "./sidebar";
 
 export const sidebarHeader: DefaultItem[] = [
   {
@@ -59,7 +60,7 @@ export const forYou: (userId?: string) => DefaultItem[] = (userId?: string) => {
   ];
 };
 
-export const ToExplore: DefaultItem[] = [
+export const toExplore: DefaultItem[] = [
   {
     title: "Music",
     url: "#",
