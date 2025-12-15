@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   components: {
     dirs: [],
   },
-  modules: ["@nuxt/eslint"],
+  imports: {
+    scan: false,
+  },
+  modules: ["@nuxt/eslint", "@pinia/nuxt", "@formkit/auto-animate/nuxt"],
   vite: {
     plugins: [tailwind()],
   },
