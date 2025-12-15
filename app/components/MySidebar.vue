@@ -48,11 +48,23 @@ const items = [
     },
 ];
 
+const expandedSections = reactive({
+    toExplore: false,
+    forYou: false,
+    moreFromYT: false,
+});
+
 const sidebarData = {
     sidebarHeader,
-    toExplore,
-    forYou,
-    moreFromYT,
+    toExplore: computed(() => {
+        return expandedSections.toExplore ? toExplore : toExplore.slice(0, 3);
+    }),
+    forYou: computed(() => {
+        return expandedSections.forYou ? forYou : forYou.slice(0, 3);
+    }),
+    moreFromYT: computed(() => {
+        return expandedSections.moreFromYT ? moreFromYT : moreFromYT.slice(0, 3);
+    }),
 };
 </script>
 
@@ -83,7 +95,7 @@ const sidebarData = {
                             <SidebarMenuButton as-child>
                                 <NuxtLink
                                     :to="`/channel/${sub.channelId}/`"
-                                    class="flex items-center gap-2.5 overflow-hidden"
+                                    class="w-full flex items-center gap-2.5 overflow-hidden p-2.5"
                                 >
                                     <Avatar>
                                         <AvatarImage :src="sub.imageUrl" :alt="sub.name" />

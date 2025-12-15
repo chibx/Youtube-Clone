@@ -30,35 +30,33 @@ export const sidebarHeader: DefaultItem[] = [
   },
 ];
 
-export const forYou: (userId?: string) => DefaultItem[] = (userId?: string) => {
-  return [
-    {
-      title: "History",
-      url: "/history",
-      icon: HistoryIcon,
-    },
-    {
-      title: "Playlist",
-      url: "/playlist",
-      icon: PlaylistIcon,
-    },
-    {
-      title: "Watch Later",
-      url: "/playlist/later",
-      icon: ClockIcon,
-    },
-    {
-      title: "Liked Videos",
-      url: "/playlist/liked",
-      icon: ThumbsUpIcon,
-    },
-    {
-      title: "Your Videos",
-      url: userId ? `/channel/${userId}/videos` : "",
-      icon: PlaySquareIcon,
-    },
-  ];
-};
+export const forYou: DefaultItem[] = [
+  {
+    title: "History",
+    url: "/history",
+    icon: HistoryIcon,
+  },
+  {
+    title: "Playlist",
+    url: "/playlist",
+    icon: PlaylistIcon,
+  },
+  {
+    title: "Watch Later",
+    url: "/playlist/later",
+    icon: ClockIcon,
+  },
+  {
+    title: "Liked Videos",
+    url: "/playlist/liked",
+    icon: ThumbsUpIcon,
+  },
+  {
+    title: "Your Videos",
+    url: "/channel/me/videos",
+    icon: PlaySquareIcon,
+  },
+];
 
 export const toExplore: DefaultItem[] = [
   {
