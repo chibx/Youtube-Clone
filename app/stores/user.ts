@@ -4,7 +4,7 @@ const MockChannelId = "x123456X";
 
 function randomSubscriptions(): Subscription[] {
   const subs: Subscription[] = [];
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 9; i++) {
     subs.push({
       name: "John Hammond",
       newContent: Math.random() > 0.5 ? true : false,
