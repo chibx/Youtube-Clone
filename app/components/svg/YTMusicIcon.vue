@@ -14,7 +14,7 @@
         xml:space="preserve"
         focusable="false"
         aria-hidden="true"
-        style="pointer-events: none; display: inherit; width: 100%; height: 100%"
+        style="pointer-events: none"
     >
         <g>
             <circle id="XMLID_4814__yt428" fill="#FF0033" cx="12" cy="12" r="11"></circle>
