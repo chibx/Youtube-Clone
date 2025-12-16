@@ -20,14 +20,12 @@ const items = computed(() => {
 <template>
     <SidebarGroup>
         <SidebarGroupContent>
-            <SidebarGroupLabel>More From YouTube</SidebarGroupLabel>
+            <SidebarGroupLabel class="text-sm font-bold ml-1.5">More From YouTube</SidebarGroupLabel>
+
             <SidebarMenu ref="moreFromYTParent">
                 <SidebarMenuItem v-for="item in items" :key="item.title">
                     <SidebarMenuButton class="p-2.5 py-5">
-                        <NuxtLink
-                            :to="item.url"
-                            class="text-black w-full flex items-center gap-2.5 overflow-hidden p-2.5"
-                        >
+                        <NuxtLink :to="item.url" class="flex items-center gap-2.5 overflow-hidden">
                             <component :is="item.icon" />
                             <span>{{ item.title }}</span>
                         </NuxtLink>

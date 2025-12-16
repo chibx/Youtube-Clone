@@ -25,7 +25,7 @@ const subscriptions = computed(() => {
         <SidebarGroupContent>
             <SidebarMenu ref="subscriptionsParent">
                 <SidebarMenuItem class="mb-2.5">
-                    <SidebarMenuButton as-child class="p-2.5 py-5">
+                    <SidebarMenuButton as-child class="p-2.5 py-5 font-bold">
                         <NuxtLink to="/subscriptions" class="flex items-center gap-5">
                             Subscriptions <ChevronRightIcon />
                         </NuxtLink>

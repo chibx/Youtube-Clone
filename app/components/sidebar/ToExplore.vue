@@ -20,7 +20,7 @@ const items = computed(() => {
 <template>
     <SidebarGroup>
         <SidebarGroupContent>
-            <SidebarGroupLabel>Explore</SidebarGroupLabel>
+            <SidebarGroupLabel class="text-sm font-bold ml-1.5">Explore</SidebarGroupLabel>
 
             <SidebarMenu ref="toExploreParent">
                 <SidebarMenuItem v-for="item in items" :key="item.title">

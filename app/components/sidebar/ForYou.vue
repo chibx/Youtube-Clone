@@ -21,16 +21,16 @@ const items = computed(() => {
         <SidebarGroupContent>
             <SidebarMenu ref="forYouParent">
                 <SidebarMenuItem>
-                    <SidebarMenuButton as-child class="p-2.5 py-5">
+                    <SidebarMenuButton as-child class="p-2.5 py-5 font-bold">
                         <NuxtLink to="/feed/you" class="flex items-center gap-5"> You <ChevronRightIcon /> </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
 
                 <SidebarMenuItem v-for="item in items" :key="item.title">
                     <SidebarMenuButton as-child class="p-2.5 py-5">
-                        <NuxtLink :to="item.url" class="w-full flex items-center gap-2.5 overflow-hidden p-2.5">
-                            <component class="h-7 w-7" :is="item.icon" />
-                            <span>{{ item.title }}</span>
+                        <NuxtLink :to="item.url" class="w-full flex items-center gap-2.5">
+                            <component :is="item.icon" />
+                            {{ item.title }}
                         </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
