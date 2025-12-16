@@ -7,6 +7,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { sidebarHeader } from "@/utils/data";
 import { useUser } from "~/stores/user";
@@ -14,6 +15,7 @@ import Subscription from "@/components/sidebar/Subscription.vue";
 import ForYou from "@/components/sidebar/ForYou.vue";
 import ToExplore from "@/components/sidebar/ToExplore.vue";
 import MoreFromYT from "@/components/sidebar/MoreFromYT.vue";
+import MySidebarExtra from "@/components/sidebar/Extras.vue";
 
 const props = defineProps();
 const user = useUser();
@@ -50,17 +52,24 @@ const sidebarData = {
                     </SidebarMenu>
                 </SidebarGroupContent>
             </SidebarGroup>
+            <SidebarSeparator />
             <!-- Subscriptions -->
             <Subscription />
+            <SidebarSeparator />
 
             <!-- You Feed -->
             <ForYou />
+            <SidebarSeparator />
 
             <!-- Explore -->
             <ToExplore />
+            <SidebarSeparator />
 
             <!-- More From YouTube -->
             <MoreFromYT />
+            <SidebarSeparator />
+
+            <MySidebarExtra />
         </SidebarContent>
     </Sidebar>
 </template>
