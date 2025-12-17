@@ -16,7 +16,7 @@ const user = useUser();
 const [subscriptionsParent] = useAutoAnimate();
 const isSubsExpanded = ref(false);
 const subscriptions = computed(() => {
-    return isSubsExpanded.value ? user.subs : user.subs.slice(0, 7);
+    return isSubsExpanded.value ? user.subs : user.subs.slice(0, 5);
 });
 </script>
 
