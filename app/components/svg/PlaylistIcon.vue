@@ -16,4 +16,8 @@
     </svg>
 </template>
 
-<style scoped></style>
+<style scoped>
+.dark svg {
+    fill: white;
+}
+</style>
