@@ -16,6 +16,7 @@ import ForYou from "@/components/sidebar/ForYou.vue";
 import ToExplore from "@/components/sidebar/ToExplore.vue";
 import MoreFromYT from "@/components/sidebar/MoreFromYT.vue";
 import MySidebarExtra from "@/components/sidebar/Extras.vue";
+import LastSection from "@/components/sidebar/LastSection.vue";
 
 const props = defineProps();
 const user = useUser();
@@ -36,7 +37,7 @@ const sidebarData = {
 
 <template>
     <Sidebar collapsible="icon" class="top-[55px]">
-        <SidebarContent>
+        <SidebarContent class="sidebar-content">
             <!-- Header: Did not use SidebarHeader because of the scroll affecting the content only -->
             <SidebarGroup>
                 <SidebarGroupContent>
@@ -69,9 +70,31 @@ const sidebarData = {
             <MoreFromYT />
             <SidebarSeparator />
 
+            <!-- Settings and so -->
             <MySidebarExtra />
+            <SidebarSeparator />
+
+            <!-- Footer kinda -->
+            <LastSection />
         </SidebarContent>
     </Sidebar>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* For browsers that support `scrollbar-*` properties */
+@supports (scrollbar-color: auto) {
+    .dark .sidebar-content {
+        scrollbar-color: black white;
+    }
+}
+
+/* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
+@supports selector(::-webkit-scrollbar) {
+    .dark .sidebar-content::-webkit-scrollbar {
+        background: black;
+    }
+    .dark .sidebar-content::-webkit-scrollbar-thumb {
+        background: white;
+    }
+}
+</style>
