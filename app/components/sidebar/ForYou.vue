@@ -47,4 +47,8 @@ const items = computed(() => {
     </SidebarGroup>
 </template>
 
-<style scoped></style>
+<style scoped>
+.dark svg {
+    color: white;
+}
+</style>
