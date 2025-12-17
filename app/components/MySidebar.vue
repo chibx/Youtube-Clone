@@ -32,11 +32,11 @@ const sidebarData = {
     // moreFromYT: computed(() => {
     //     return expandedSections.moreFromYT ? moreFromYT : moreFromYT.slice(0, 3);
     // }),
-};
+}; 
 </script>
 
 <template>
-    <Sidebar collapsible="icon" class="top-[55px]">
+    <Sidebar collapsible="icon" class="top-(--myheader-height)">
         <SidebarContent class="sidebar-content">
             <!-- Header: Did not use SidebarHeader because of the scroll affecting the content only -->
             <SidebarGroup>
@@ -93,6 +93,7 @@ const sidebarData = {
     .dark .sidebar-content::-webkit-scrollbar {
         background: black;
     }
+
     .dark .sidebar-content::-webkit-scrollbar-thumb {
         background: white;
     }

@@ -11,7 +11,7 @@ const isDark = useDark();
     <MyHeader />
     <SidebarProvider style="--sidebar-width: 17rem">
         <MySidebar />
-        <SidebarInset>
+        <SidebarInset class="mt-(--myheader-height)">
             <slot />
         </SidebarInset>
     </SidebarProvider>

@@ -10,6 +10,10 @@
 </template>
 
 <style>
+:root {
+    --myheader-height: 60px;
+}
+
 #__nuxt {
 }
 </style>
