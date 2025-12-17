@@ -6,8 +6,12 @@ import YTLogo from "~/components/svg/YTLogo.vue";
 <template>
     <header class="fixed top-0 w-full h-[55px] flex gap-10 items-center">
         <MenuIcon />
-        <YTLogo class="h-10 w-20 text-white" />
+        <YTLogo class="h-10 w-20" />
     </header>
 </template>
 
-<style scoped></style>
+<style scoped>
+.dark svg {
+    fill: white;
+}
+</style>
