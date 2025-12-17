@@ -42,9 +42,9 @@ const subscriptions = computed(() => {
                                 <AvatarFallback>{{ initials(sub.name) }}</AvatarFallback>
                             </Avatar>
 
-                            <span>{{ sub.name }}</span>
+                            <span class="">{{ sub.name }}</span>
 
-                            <SubscriptionDot class="self-end" v-if="sub.newContent" />
+                            <SubscriptionDot class="subs-dot ml-auto" v-if="sub.newContent" />
                         </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -61,4 +61,11 @@ const subscriptions = computed(() => {
     </SidebarGroup>
 </template>
 
-<style scoped></style>
+<style scoped>
+.subs-dot {
+    background-color: blue;
+}
+.dark .subs-dot {
+    background-color: #82a1ff;
+}
+</style>
