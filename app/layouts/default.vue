@@ -9,7 +9,7 @@ const isDark = useDark();
 
 <template>
     <MyHeader />
-    <SidebarProvider>
+    <SidebarProvider style="--sidebar-width: 17rem">
         <MySidebar />
         <SidebarInset>
             <slot />
