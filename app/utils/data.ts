@@ -103,3 +103,59 @@ export const moreFromYT: MoreFromYT[] = [
     icon: YTKidsIcon,
   },
 ];
+
+const section_1 = [
+  {
+    text: "About",
+    url: "#",
+  },
+  {
+    text: "Press",
+    url: "#",
+  },
+  {
+    text: "Copyright",
+    url: "#",
+  },
+  {
+    text: "Contact Us",
+    url: "#",
+  },
+  {
+    text: "Creators",
+    url: "#",
+  },
+  {
+    text: "Advertise",
+    url: "#",
+  },
+  {
+    text: "About",
+    url: "#",
+  },
+];
+
+const section_2 = [
+  {
+    text: "Terms",
+    url: "#",
+  },
+  {
+    text: "Privacy",
+    url: "#",
+  },
+  {
+    text: "Policy & Safety",
+    url: "#",
+  },
+  {
+    text: "How YouTube works",
+    url: "#",
+  },
+  {
+    text: "Test new features",
+    url: "#",
+  },
+];
+
+export const lastSectionLinks = [section_1, section_2];
