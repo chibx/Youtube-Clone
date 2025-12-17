@@ -18,7 +18,7 @@ function randomSubscriptions(): Subscription[] {
 
 export const useUser = defineStore("user", () => {
   const id = ref<string>();
-  const subs = ref(randomSubscriptions());
+  const subs = shallowRef(randomSubscriptions());
 
   return {
     id,
