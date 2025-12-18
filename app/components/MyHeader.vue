@@ -37,52 +37,54 @@ const name = ref("Adam Jake")
         </div>
 
         <div class="flex gap-5">
-            <DropdownMenu>
-                <DropdownMenuTrigger as-child>
-                    <UiButton
-                        class="w-25 flex items-center gap-1.5 py-5 px-5 rounded-full cursor-pointer bg-black text-white dark:bg-white dark:text-black">
-                        <PlusIcon class="text-white dark:text-black!" />
-                        Create
-                    </UiButton>
-                </DropdownMenuTrigger>
+            <ClientOnly>
+                <DropdownMenu>
+                    <DropdownMenuTrigger as-child>
+                        <UiButton
+                            class="w-25 flex items-center gap-1.5 py-5 px-5 rounded-full cursor-pointer bg-black text-white dark:bg-white dark:text-black">
+                            <PlusIcon class="text-white dark:text-black!" />
+                            Create
+                        </UiButton>
+                    </DropdownMenuTrigger>
 
-                <DropdownMenuContent class="w-45 mr-5 py-2.5 rounded-xl">
-                    <DropdownMenuItem as-child>
-                        <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
-                            <UploadIcon />
-                            Upload
-                        </NuxtLink>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem as-child>
-                        <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
-                            <AntennaIcon />
-                            Go Live
-                        </NuxtLink>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem as-child>
-                        <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
-                            <NotebookIcon />
-                            Create Post
-                        </NuxtLink>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
+                    <DropdownMenuContent class="w-45 mr-5 py-2.5 rounded-xl">
+                        <DropdownMenuItem as-child>
+                            <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
+                                <UploadIcon />
+                                Upload
+                            </NuxtLink>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem as-child>
+                            <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
+                                <AntennaIcon />
+                                Go Live
+                            </NuxtLink>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem as-child>
+                            <NuxtLink to="#" class="cursor-pointer flex items-center gap-2.5 p-2.5 py-3">
+                                <NotebookIcon />
+                                Create Post
+                            </NuxtLink>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
 
-            <NotificationWrapper />
+                <NotificationWrapper />
 
-            <DropdownMenu>
-                <DropdownMenuTrigger as-child>
-                    <Avatar class="cursor-pointer">
-                        <AvatarImage src="/yt-thumb.webp" />
-                        <AvatarFallback :style="{ backgroundColor: 'red', color: 'white' }">{{ initials(name) }}
-                        </AvatarFallback>
-                    </Avatar>
-                </DropdownMenuTrigger>
+                <DropdownMenu>
+                    <DropdownMenuTrigger as-child>
+                        <Avatar class="cursor-pointer">
+                            <AvatarImage src="/yt-thumb.webp" />
+                            <AvatarFallback :style="{ backgroundColor: 'red', color: 'white' }">{{ initials(name) }}
+                            </AvatarFallback>
+                        </Avatar>
+                    </DropdownMenuTrigger>
 
-                <DropdownMenuContent>
+                    <DropdownMenuContent>
 
-                </DropdownMenuContent>
-            </DropdownMenu>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </ClientOnly>
         </div>
     </header>
 </template>
