@@ -9,7 +9,7 @@ import {
     SidebarMenuItem,
     SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { sidebarHeader } from "@/utils/data";
+import { sidebarHeader } from "~/utils/sidebar";
 import { useUser } from "~/stores/user";
 import Subscription from "@/components/sidebar/Subscription.vue";
 import ForYou from "@/components/sidebar/ForYou.vue";

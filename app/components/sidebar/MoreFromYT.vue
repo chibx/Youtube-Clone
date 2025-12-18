@@ -8,7 +8,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ChevronDownIcon } from "lucide-vue-next";
-import { moreFromYT } from "~/utils/data";
+import { moreFromYT } from "~/utils/sidebar";
 
 const [moreFromYTParent] = useAutoAnimate();
 const isMoreFromExpanded = ref(false);
@@ -32,11 +32,10 @@ const items = computed(() => {
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                    <SidebarMenuButton
-                        class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
-                        @click="isMoreFromExpanded = !isMoreFromExpanded"
-                    >
-                        More <ChevronDownIcon :class="{ 'rotate-z-180': isMoreFromExpanded }" />
+                    <SidebarMenuButton class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
+                        @click="isMoreFromExpanded = !isMoreFromExpanded">
+                        More
+                        <ChevronDownIcon :class="{ 'rotate-z-180': isMoreFromExpanded }" />
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>
