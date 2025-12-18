@@ -7,7 +7,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ChevronDownIcon, ChevronRightIcon } from "lucide-vue-next";
-import { forYou } from "~/utils/data";
+import { forYou } from "~/utils/sidebar";
 
 const [forYouParent] = useAutoAnimate();
 const isForYouExpanded = ref(false);
@@ -22,7 +22,9 @@ const items = computed(() => {
             <SidebarMenu ref="forYouParent">
                 <SidebarMenuItem>
                     <SidebarMenuButton as-child class="p-2.5 py-5 font-bold">
-                        <NuxtLink to="/feed/you" class="flex items-center gap-5"> You <ChevronRightIcon /> </NuxtLink>
+                        <NuxtLink to="/feed/you" class="flex items-center gap-5"> You
+                            <ChevronRightIcon />
+                        </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
 
@@ -35,11 +37,10 @@ const items = computed(() => {
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                    <SidebarMenuButton
-                        class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
-                        @click="isForYouExpanded = !isForYouExpanded"
-                    >
-                        More <ChevronDownIcon :class="{ 'rotate-z-180': isForYouExpanded }" />
+                    <SidebarMenuButton class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
+                        @click="isForYouExpanded = !isForYouExpanded">
+                        More
+                        <ChevronDownIcon :class="{ 'rotate-z-180': isForYouExpanded }" />
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>

@@ -4,7 +4,6 @@ import { SidebarProvider, SidebarInset } from "~/components/ui/sidebar";
 import MySidebar from "~/components/MySidebar.vue";
 import MyHeader from "~/components/MyHeader.vue";
 
-const isDark = useDark();
 </script>
 
 <template>
