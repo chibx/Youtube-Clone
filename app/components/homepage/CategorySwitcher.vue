@@ -1,38 +1,34 @@
 <script setup lang="ts">
-import emblaCarouselVue from 'embla-carousel-vue'
-import { Badge } from "@/components/ui/badge"
+import { delay } from '~/utils/utils'
+import { Skeleton } from "@/components/ui/skeleton"
+import CategorySlider from './CategorySlider.vue'
+// import { Button } from "@/components/ui/button"`
 
-const [emblaRef, emblaApi] = emblaCarouselVue({ loop: false })
+const categories = ref<string[]>([])
+const el = ref<HTMLElement |null>(null)
+provide("el", el)
+
+async function loadCategories() {
+    try {
+        await delay(1000)
+        const { getCategories } = await import("@/utils/category-switcher")
+        categories.value = getCategories()
+    } catch { }
+}
 
 onMounted(() => {
-
+    loadCategories()
 })
 </script>
 
 <template>
-    <div class="embla" ref="emblaRef">
-        <div class="embla__container">
-            <Badge class="embla__slide">All</Badge>
-            <Badge class="embla__slide">All</Badge>
-            <Badge class="embla__slide">All</Badge>
-            <Badge class="embla__slide">All</Badge>
-            <Badge class="embla__slide">All</Badge>
-        </div>
+    <div class="wrapper overflow-hidden select-none" ref="el">
+        <Skeleton v-if="categories.length === 0" class="h-[30px] w-full" />
+
+        <CategorySlider v-else :categories="categories" />
     </div>
 </template>
 
 <style scoped>
-.embla {
-    overflow: hidden;
-}
 
-.embla__container {
-    display: flex;
-    gap: 20px;
-}
-
-.embla__slide {
-    flex: 0 0 100%;
-    min-width: 0;
-}
 </style>

@@ -6,11 +6,13 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    useSidebar,
 } from "@/components/ui/sidebar";
 import { ChevronDownIcon } from "lucide-vue-next";
 import { toExplore } from "~/utils/sidebar";
 
 const [toExploreParent] = useAutoAnimate();
+const { open } = useSidebar()
 const isExploreExpanded = ref(false);
 const items = computed(() => {
     return isExploreExpanded.value ? toExplore : toExplore.slice(0, 3);
@@ -31,7 +33,7 @@ const items = computed(() => {
                         </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-                <SidebarMenuItem>
+                <SidebarMenuItem v-if="open">
                     <SidebarMenuButton class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
                         @click="isExploreExpanded = !isExploreExpanded">
                         More

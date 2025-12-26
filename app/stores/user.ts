@@ -1,8 +1,8 @@
-import type { Subscription } from "~/utils/sidebar";
+import type { Subscription } from "~/utils/types";
 
 const MockChannelId = "x123456X";
 
-function randomSubscriptions(): Subscription[] {
+export function randomSubscriptions(): Subscription[] {
   const subs: Subscription[] = [];
   for (let i = 0; i < 9; i++) {
     subs.push({
@@ -18,7 +18,7 @@ function randomSubscriptions(): Subscription[] {
 
 export const useUser = defineStore("user", () => {
   const id = ref<string>();
-  const subs = shallowRef(randomSubscriptions());
+  const subs = shallowRef<Subscription[]>([]);
 
   return {
     id,

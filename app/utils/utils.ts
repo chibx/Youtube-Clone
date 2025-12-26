@@ -51,3 +51,19 @@ export function diffDate(date: Date | string): string {
         return "";
     }
 }
+
+export function randomItems<T>(items: T[], count: number) {
+    const shuffled: T[] = []
+    const takenIndexes: number[] = []
+    for (let i = 0; i < count; i++) {
+        const randomIndex = Math.floor(Math.random() * items.length)
+        if (takenIndexes.includes(randomIndex)) {
+            i--
+            continue
+        }
+        takenIndexes.push(randomIndex)
+        shuffled.push(items[randomIndex]!)
+    }
+
+    return shuffled
+}
