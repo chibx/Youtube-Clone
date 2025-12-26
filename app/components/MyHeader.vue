@@ -7,15 +7,33 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { initials } from "~/utils/utils";
 import NotificationWrapper from "~/components/header/NotificationWrapper.vue";
+import { useSidebar } from "@/components/ui/sidebar";
 
 const searchText = ref("");
 const name = ref("Adam Jake")
+const sidebarState = inject<{ openBar: boolean, closedBar: boolean }>("sidebarState")!
+// const isSidebarOpen = inject<Ref<boolean>>("isSidebarOpen")
+
+const { toggleSidebar, isMobile } = useSidebar()
+
+
+function togSidebar(){
+    console.log(sidebarState)
+    if(isMobile.value){
+        sidebarState.openBar = true
+        sidebarState.closedBar = false
+        toggleSidebar()
+    } else {
+        sidebarState.openBar = !sidebarState.openBar
+        sidebarState.closedBar = !sidebarState.closedBar
+    }
+}
 </script>
 
 <template>
-    <header class="fixed px-5 top-0 w-full h-(--myheader-height) flex justify-between items-center">
+    <header class="fixed z-10 dark:bg-black bg-white px-5 top-0 w-full h-(--myheader-height) flex justify-between items-center">
         <div class="flex gap-5 items-center">
-            <MenuIcon />
+            <MenuIcon tabindex="0" class="cursor-pointer" @keypress.enter="togSidebar" @click="togSidebar" />
             <YTLogo class="logo h-10 w-20" />
         </div>
 

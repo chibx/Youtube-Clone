@@ -29,3 +29,8 @@ export type YTNotification = {
     /** Account name causing the notification */
     actor?: string;
 };
+
+export type Categories = {
+    cmp: [string, weight: number][]
+    opt: [string, weight: number][]
+}

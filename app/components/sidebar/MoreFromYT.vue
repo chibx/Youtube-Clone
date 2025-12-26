@@ -6,11 +6,13 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    useSidebar,
 } from "@/components/ui/sidebar";
 import { ChevronDownIcon } from "lucide-vue-next";
 import { moreFromYT } from "~/utils/sidebar";
 
 const [moreFromYTParent] = useAutoAnimate();
+const { open } = useSidebar()
 const isMoreFromExpanded = ref(false);
 const items = computed(() => {
     return isMoreFromExpanded.value ? moreFromYT : moreFromYT.slice(0, 3);
@@ -31,7 +33,7 @@ const items = computed(() => {
                         </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-                <SidebarMenuItem>
+                <SidebarMenuItem v-if="open">
                     <SidebarMenuButton class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer"
                         @click="isMoreFromExpanded = !isMoreFromExpanded">
                         More
