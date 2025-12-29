@@ -18,6 +18,7 @@ import { Button as UiButton } from "@/components/ui/button";
 import { useUser } from "~/stores/user";
 import { initials } from "~/utils/utils";
 import { forYou } from "~/utils/sidebar";
+import SubscriptionDot from "@/components/SubscriptionDot.vue";
 
 const user = useUser();
 </script>

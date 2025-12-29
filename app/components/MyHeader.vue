@@ -18,7 +18,6 @@ const { toggleSidebar, isMobile } = useSidebar()
 
 
 function togSidebar(){
-    console.log(sidebarState)
     if(isMobile.value){
         sidebarState.openBar = true
         sidebarState.closedBar = false

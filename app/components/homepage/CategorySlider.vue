@@ -6,7 +6,7 @@ const props = defineProps<{ categories: string[] }>()
 const [emblaRef, emblaApi] = emblaCarouselVue({ loop: false })
 
 const activeCategory = ref<string | null>("All")
-const el = inject<Ref<HTMLElement | null>>("el")
+// const el = inject<Ref<HTMLElement | null>>("el")
 
 function setActiveCategory(category: string) {
     activeCategory.value = category

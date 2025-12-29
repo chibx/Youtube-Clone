@@ -5,8 +5,8 @@ import CategorySlider from './CategorySlider.vue'
 // import { Button } from "@/components/ui/button"`
 
 const categories = ref<string[]>([])
-const el = ref<HTMLElement |null>(null)
-provide("el", el)
+// const el = ref<HTMLElement |null>(null)
+// provide("el", el)
 
 async function loadCategories() {
     try {
@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="wrapper overflow-hidden select-none" ref="el">
+    <div class="wrapper overflow-hidden select-none">
         <Skeleton v-if="categories.length === 0" class="h-[30px] w-full" />
 
         <CategorySlider v-else :categories="categories" />
