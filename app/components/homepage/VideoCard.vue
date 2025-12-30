@@ -1,33 +1,58 @@
 <script setup lang="ts">
-import { Card, CardContent } from "@/components/ui/card"
 import VideoPlayer from "./VideoPlayer.vue";
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import VideoDropdown from "@/components/homepage/VideoDropdown.vue";
 import { EllipsisVerticalIcon } from "lucide-vue-next";
 
-function clickVid(e: PointerEvent){
-console.log(e)
+const router = useRouter()
+const props = defineProps<{
+    color?: string
+    videoId: string
+}>()
+
+function clickVid(e: PointerEvent) {
+    const el = e.target as HTMLElement;
+    const videoLink = el?.closest('.video-link');
+    const channelLink = el?.closest('.channel-link');
+    const menuBtn = el?.closest('.menu-btn');
+
+    if (channelLink || videoLink || menuBtn) {
+        return;
+    }
+
+    // Navigate to video page
+    router.push(`/watch/${props.videoId}`);
 }
 </script>
 
 <template>
-    <div class="video-wrapper w-full p-2.5 rounded-2xl" :style="{ '--video-bg-color': '#31666f80' }" @click="clickVid">
+    <div class="video-wrapper cursor-pointer w-full p-2.5 rounded-2xl"
+        :style="{ '--video-bg-color': props.color ?? '#31666f80' }" @click="clickVid">
         <div>
-            <VideoPlayer />
+            <NuxtLink class="video-link" :to="`/watch/${props.videoId}`">
+                <VideoPlayer />
+            </NuxtLink>
             <div class="flex gap-3 my-2.5">
-                <Avatar>
-                    <AvatarImage src="https://github.com/chibx.png" alt="Channel avatar" />
-                </Avatar>
+                <div>
+                    <Avatar>
+                        <AvatarImage src="https://github.com/chibx.png" alt="Channel avatar" />
+                    </Avatar>
+                </div>
+
                 <div class="flex flex-col gap-1">
                     <h3 class="font-bold" :title="'Why gaming laptops are expensive...'">
                         Why gaming laptops are expensive...</h3>
-                    <NuxtLink href="/channel/@geeky-coder" class="w-fit text-sm text-primary hover:underline">Geeky Coder</NuxtLink>
+                    <NuxtLink to="/channel/@geeky-coder"
+                        class="channel-link w-fit text-sm text-primary hover:underline">Geeky Coder</NuxtLink>
                     <span class="text-sm text-muted-foreground">100K views • 2 days ago</span>
                 </div>
 
-                <div>
-                    <span class="inline-flex items-center justify-center cursor-pointer p-2 rounded-full hover:bg-muted">
-                        <EllipsisVerticalIcon class="w-5 h-5" />
-                    </span>
+                <div class="ml-auto mr-2.5">
+                    <VideoDropdown :video-id="props.videoId">
+                            <span class="menu-btn inline-flex items-center justify-center cursor-pointer p-2 rounded-full hover:bg-white/10">
+                                <EllipsisVerticalIcon class="w-5 h-5" />
+                            </span>
+                    </VideoDropdown>
                 </div>
             </div>
         </div>
@@ -37,7 +62,7 @@ console.log(e)
 <style scoped>
 .video-wrapper {
     /* overflow: hidden; */
-    box-shadow: 0 4px 12px rgba(181, 181, 181, 0.15);
+    /* box-shadow: 0 4px 12px rgba(181, 181, 181, 0.15); */
     transition: background-color 0.2s ease;
 }
 

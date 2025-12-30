@@ -12,5 +12,6 @@
   aspect-ratio: 16/9;
   background-color: #000;
   border-radius: 8px;
+  overflow: hidden;
 }
 </style>
