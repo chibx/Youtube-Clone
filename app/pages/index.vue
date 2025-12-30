@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { } from "@/components/ui/card"
 import CategorySwitcher from "~/components/homepage/CategorySwitcher.vue";
 import VideoCard from "~/components/homepage/VideoCard.vue";
-
+import YTShortIcon from "~/components/svg/YTShortIcon.vue";
+import { randomColor } from "~/utils/colors";
 
 </script>
 
@@ -11,9 +11,20 @@ import VideoCard from "~/components/homepage/VideoCard.vue";
         <CategorySwitcher class="mb-5" />
         <!-- <h1 class="text-2xl">Hello</h1> -->
         <div class="top-videos">
-            <VideoCard />
-            <VideoCard />
+            <VideoCard :video-id="'default'" :color="randomColor()" />
+            <VideoCard :video-id="'default'" :color="randomColor()" />
         </div>
+
+        <section class="mt-6">
+            <div class="flex items-center gap-2 ml-10">
+                <YTShortIcon />
+                <h2 class="text-2xl font-semibold">Shorts</h2>
+            </div>
+
+            <!-- Add shorts grid here later -->
+
+            <div class="shorts-container"></div>
+        </section>
     </div>
 </template>
 
