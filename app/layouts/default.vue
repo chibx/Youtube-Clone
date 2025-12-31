@@ -11,13 +11,13 @@ const sidebarState = reactive({
     closedBar: false,
 })
 
-watch(isWideForOpenSidebar, () => {
-    if(isWideForOpenSidebar.value){
-        console.log("Wide for open sidebar")
-        sidebarState.openBar = true
-        sidebarState.closedBar = false
-    }
-})
+// watch(isWideForOpenSidebar, () => {
+//     if(isWideForOpenSidebar.value){
+//         console.log("Wide for open sidebar")
+//         sidebarState.openBar = true
+//         sidebarState.closedBar = false
+//     }
+// })
 
 provide("sidebarState", sidebarState)
 const sidebarWidth = computed(() => {
