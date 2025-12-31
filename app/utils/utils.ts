@@ -54,14 +54,14 @@ export function diffDate(date: Date | string): string {
 
 export function randomItems<T>(items: T[], count: number) {
     const shuffled: T[] = []
-    const takenIndexes: number[] = []
+    const takenIndexes = new Set<number>()
     for (let i = 0; i < count; i++) {
         const randomIndex = Math.floor(Math.random() * items.length)
-        if (takenIndexes.includes(randomIndex)) {
+        if (takenIndexes.has(randomIndex)) {
             i--
             continue
         }
-        takenIndexes.push(randomIndex)
+        takenIndexes.add(randomIndex)
         shuffled.push(items[randomIndex]!)
     }
 
