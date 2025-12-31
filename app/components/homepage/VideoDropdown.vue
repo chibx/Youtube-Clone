@@ -63,44 +63,44 @@ Report
         <DropdownMenuContent class="w-65 rounded-xl">
             <DropdownMenuGroup>
                 <DropdownMenuItem class="rounded-none" @click="addToQueue">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <AddToQueue />
                         Add to queue
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem class="rounded-none" @click="saveToWatchLater">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <Clock />
                         Save to Watch later
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem class="rounded-none" @click="saveToPlayList">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <BookmarkIcon />
                         Save to playlist
                     </div>
                 </DropdownMenuItem>
                 <!-- <DropdownMenuItem>Download</DropdownMenuItem> -->
                 <DropdownMenuItem class="rounded-none" @click="share">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <YTShareIcon />
                         Share
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem class="rounded-none" @click="setNotInterested">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <NotInterestedIcon />
                         Not interested
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem class="rounded-none" @click="removeRecommend">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <NoRecommendIcon />
                         Don't recommend channel
                     </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem class="rounded-none" @click="report">
-                    <div class="py-2 pl-2.5 flex items-center gap-2">
+                    <div class="py-2 pl-2.5 flex items-center gap-2.5">
                         <FlagIcon />
                         Report
                     </div>

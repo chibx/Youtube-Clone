@@ -26,15 +26,16 @@ function clickVid(e: PointerEvent) {
 </script>
 
 <template>
-    <div class="video-wrapper cursor-pointer w-full p-2.5 rounded-2xl"
+    <div class="video-wrapper cursor-pointer w-full p-3.5 rounded-2xl"
         :style="{ '--video-bg-color': props.color ?? '#31666f80' }" @click="clickVid">
-        <div>
+        <div class="mt-2.5">
             <NuxtLink class="video-link" :to="`/watch/${props.videoId}`">
                 <VideoPlayer />
             </NuxtLink>
-            <div class="flex gap-3 my-2.5">
+
+            <div class="flex gap-3 mt-2.5 mb-2">
                 <div>
-                    <Avatar>
+                    <Avatar class="w-9 h-9">
                         <AvatarImage src="https://github.com/chibx.png" alt="Channel avatar" />
                     </Avatar>
                 </div>
@@ -43,13 +44,13 @@ function clickVid(e: PointerEvent) {
                     <h3 class="font-bold" :title="'Why gaming laptops are expensive...'">
                         Why gaming laptops are expensive...</h3>
                     <NuxtLink to="/channel/@geeky-coder"
-                        class="channel-link w-fit text-sm text-primary hover:underline">Geeky Coder</NuxtLink>
+                        class="channel-link w-fit text-sm text-primary hover:underline underline-offset-2">Geeky Coder</NuxtLink>
                     <span class="text-sm text-muted-foreground">100K views • 2 days ago</span>
                 </div>
 
                 <div class="ml-auto mr-2.5">
                     <VideoDropdown :video-id="props.videoId">
-                            <span class="menu-btn inline-flex items-center justify-center cursor-pointer p-2 rounded-full hover:bg-white/10">
+                            <span class="menu-btn inline-flex items-center justify-center cursor-pointer p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10">
                                 <EllipsisVerticalIcon class="w-5 h-5" />
                             </span>
                     </VideoDropdown>
