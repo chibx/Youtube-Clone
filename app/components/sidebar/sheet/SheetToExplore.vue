@@ -1,31 +1,31 @@
 <script setup lang="ts">
 import { useSidebar } from "@/components/ui/sidebar";
 import { ChevronDownIcon } from "lucide-vue-next";
-import { moreFromYT } from "~/utils/sidebar";
+import { toExplore } from "~/utils/sidebar";
 
-const [moreFromYTParent] = useAutoAnimate();
-const isMoreFromExpanded = ref(false);
+const [toExploreParent] = useAutoAnimate();
+const isExploreExpanded = ref(false);
 const items = computed(() => {
-    return isMoreFromExpanded.value ? moreFromYT : moreFromYT.slice(0, 3);
+    return isExploreExpanded.value ? toExplore : toExplore.slice(0, 3);
 });
 </script>
 
 <template>
     <section>
-        <h3 class="text-sm font-bold ml-1.5">More From YouTube</h3>
+        <h3 class="text-sm font-bold ml-1.5">Explore</h3>
 
-        <ul ref="moreFromYTParent">
+        <ul ref="toExploreParent">
             <li v-for="item in items" :key="item.title" class="hover:bg-accent">
-                <NuxtLink :to="item.url" class="flex items-center gap-2.5 overflow-hidden p-2.5 py-2.5">
+                <NuxtLink :to="item.url" class="w-full flex items-center gap-2.5 overflow-hidden p-2.5 py-2.5">
                     <component :is="item.icon" />
                     <span>{{ item.title }}</span>
                 </NuxtLink>
             </li>
             <li class="hover:bg-accent">
                 <button class="p-2.5 py-2.5 flex items-center gap-2.5 cursor-pointer w-full"
-                    @click="isMoreFromExpanded = !isMoreFromExpanded">
+                    @click="isExploreExpanded = !isExploreExpanded">
                     More
-                    <ChevronDownIcon :class="{ 'rotate-z-180': isMoreFromExpanded }" />
+                    <ChevronDownIcon :class="{ 'rotate-z-180': isExploreExpanded }" />
                 </button>
             </li>
         </ul>

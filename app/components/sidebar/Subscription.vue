@@ -25,6 +25,7 @@ const subscriptions = computed(() => {
 onMounted(() => {
     delay(2000).then(() => {
         user.subs = randomSubscriptions();
+        user.isSubsLoading = false;
     })
 })
 </script>
@@ -41,7 +42,7 @@ onMounted(() => {
                         </NuxtLink>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-                <template v-if="user.subs.length == 0">
+                <template v-if="user.isSubsLoading">
                     <SidebarMenuItem v-for="_ in 6">
                         <SidebarMenuButton class="w-full flex items-center gap-2.5 overflow-hidden p-3">
                             <Skeleton class="h-7 w-7 rounded-full" />

@@ -9,7 +9,6 @@ import SubscriptionDot from "@/components/SubscriptionDot.vue";
 
 const user = useUser();
 const [subscriptionsParent] = useAutoAnimate();
-const { open } = useSidebar()
 const isSubsExpanded = ref(false);
 const subscriptions = computed(() => {
     return isSubsExpanded.value ? user.subs : user.subs.slice(0, 5);
@@ -18,20 +17,21 @@ const subscriptions = computed(() => {
 onMounted(() => {
     delay(2000).then(() => {
         user.subs = randomSubscriptions();
+        user.isSubsLoading = false;
     })
 })
 </script>
 
 <template>
     <section>
-        <ul ref="subscriptionsParent">
-            <li v-if="open" class="mb-2.5">
-                <NuxtLink to="/subscriptions" class="flex items-center gap-5 p-2.5 py-5 font-bold">
+        <ul ref="subscriptionsParent" class="mb-2.5">
+            <li class="mb-2.5">
+                <NuxtLink to="/subscriptions" class="flex items-center gap-5 p-2.5 py-2.5 font-bold">
                     Subscriptions
                     <ChevronRightIcon />
                 </NuxtLink>
             </li>
-            <template v-if="user.subs.length == 0">
+            <template v-if="user.isSubsLoading">
                 <li v-for="_ in 6">
                     <div class="w-full flex items-center gap-2.5 overflow-hidden p-3">
                         <Skeleton class="h-7 w-7 rounded-full" />
@@ -40,9 +40,9 @@ onMounted(() => {
                 </li>
             </template>
             <template v-else>
-                <li v-for="sub in subscriptions" :key="sub.name">
+                <li v-for="sub in subscriptions" :key="sub.name" class="hover:bg-accent">
                     <NuxtLink :to="`/channel/${sub.channelId}/`"
-                        class="w-full flex items-center gap-2.5 overflow-hidden p-2.5 py-5">
+                        class="w-full flex items-center gap-2.5 overflow-hidden p-2.5 py-2.5">
                         <Avatar class="h-7 w-7">
                             <AvatarImage :src="sub.imageUrl" :alt="sub.name" />
                             <AvatarFallback>{{ initials(sub.name) }}</AvatarFallback>
@@ -53,8 +53,8 @@ onMounted(() => {
                         <SubscriptionDot class="subs-dot ml-auto" v-if="sub.newContent" />
                     </NuxtLink>
                 </li>
-                <li v-if="open">
-                    <button class="p-2.5 py-5 flex items-center gap-2.5 cursor-pointer w-full"
+                <li class="hover:bg-accent">
+                    <button class="p-2.5 py-2.5 flex items-center gap-2.5 cursor-pointer w-full"
                         @click="isSubsExpanded = !isSubsExpanded">
                         More
                         <ChevronDownIcon :class="{ 'rotate-z-180': isSubsExpanded }" />
