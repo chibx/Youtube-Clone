@@ -3,12 +3,20 @@ import { useDark, useMediaQuery } from "@vueuse/core";
 import { SidebarProvider, SidebarInset } from "~/components/ui/sidebar";
 import MySidebar from "~/components/MySidebar.vue";
 import MyHeader from "~/components/MyHeader.vue";
-const isMobile = useMediaQuery("(max-width: 768px)")
-import { delay } from "~/utils/utils";
+import SidebarSheet from "~/components/sidebar/sheet/SidebarSheet.vue";
 const router = useRouter()
+const isWideForOpenSidebar = useMediaQuery("(min-width: 1250px)")
 const sidebarState = reactive({
     openBar: true,
     closedBar: false,
+})
+
+watch(isWideForOpenSidebar, () => {
+    if(isWideForOpenSidebar.value){
+        console.log("Wide for open sidebar")
+        sidebarState.openBar = true
+        sidebarState.closedBar = false
+    }
 })
 
 provide("sidebarState", sidebarState)
@@ -24,6 +32,7 @@ const sidebarWidth = computed(() => {
 </script>
 
 <template>
+    <SidebarSheet />
     <SidebarProvider :style="{ '--sidebar-width': sidebarWidth }">
         <MyHeader />
         <MySidebar />
