@@ -23,8 +23,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <section>
-        <ul ref="subscriptionsParent" class="mb-2.5">
+    <section class="my-2.5">
+        <ul ref="subscriptionsParent">
             <li class="mb-2.5">
                 <NuxtLink to="/subscriptions" class="flex items-center gap-5 p-2.5 py-2.5 font-bold">
                     Subscriptions

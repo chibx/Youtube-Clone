@@ -11,7 +11,7 @@ const items = computed(() => {
 </script>
 
 <template>
-    <section>
+    <section class="my-2.5">
         <ul ref="forYouParent">
             <li class="hover:bg-accent">
                 <NuxtLink to="/feed/you" class="flex items-center gap-5 p-2.5 py-2.5 font-bold">

@@ -9,21 +9,37 @@ import SheetToExplore from "./SheetToExplore.vue"
 import SheetMoreFromYT from "./SheetMoreFromYT.vue"
 import SheetExtras from "./SheetExtras.vue"
 import SheetLastSection from "./SheetLastSection.vue"
+import { MenuIcon } from "lucide-vue-next"
+import YTLogo from "~/components/svg/YTLogo.vue"
 
 const sidebarData = {
     sidebarHeader,
 }
 
-const open = ref(true)
+const open = computed(() => {
+    return true
+})
+
+watch(open, () => {
+    if (!open.value) {
+
+    } else {
+
+    }
+})
 </script>
 
 <template>
-    <Sheet :open="open">
-        <SheetContent class="max-w-80" side="left">
+    <Sheet :open="open" @update:open="open = $event">
+        <SheetContent side="left" style="--container-sm: 20rem;">
+            <SheetTitle class="sr-only">Sidebar</SheetTitle>
+            <SheetDescription class="sr-only">YouTube Sidebar</SheetDescription>
+            <div class="header flex items-center pl-7.5 pt-5">
+                <MenuIcon />
+                <YTLogo class="logo w-30" />
+            </div>
             <ScrollArea class="h-full">
-                <SheetTitle class="sr-only">Sidebar</SheetTitle>
-                <SheetDescription class="sr-only">YouTube Sidebar</SheetDescription>
-                <nav class="w-full">
+                <nav class="w-full pt-5">
                     <ul class="mb-2.5">
                         <li v-for="item in sidebarData.sidebarHeader" :key="item.title" class="w-full">
                             <NuxtLink :to="item.url"
@@ -57,4 +73,20 @@ const open = ref(true)
     </Sheet>
 </template>
 
-<style scoped></style>
+<style scoped>
+:deep(.sidebar-sheet) {
+    --container-sm: 16rem;
+}
+
+.dark .logo {
+    fill: white;
+}
+
+:deep(ul) {
+    padding-inline: 20px;
+}
+
+:deep(ul) li {
+    border-radius: 10px;
+}
+</style>

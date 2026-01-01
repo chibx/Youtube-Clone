@@ -3,7 +3,7 @@ import { FlagIcon, HelpCircleIcon, MessageSquareIcon, SettingsIcon } from "lucid
 </script>
 
 <template>
-    <section>
+    <section class="my-2.5">
         <ul>
             <li class="hover:bg-accent">
                 <NuxtLink to="/settings" class="w-full flex items-center gap-2.5 overflow-hidden p-2.5 py-2.5">

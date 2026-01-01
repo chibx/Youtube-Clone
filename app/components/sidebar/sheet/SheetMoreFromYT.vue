@@ -11,8 +11,8 @@ const items = computed(() => {
 </script>
 
 <template>
-    <section>
-        <h3 class="text-sm font-bold ml-1.5">More From YouTube</h3>
+    <section class="my-2.5">
+        <h3 class="text-sm font-bold ml-8 mb-1">More From YouTube</h3>
 
         <ul ref="moreFromYTParent">
             <li v-for="item in items" :key="item.title" class="hover:bg-accent">
