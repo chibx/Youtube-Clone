@@ -41,14 +41,15 @@ function setActiveCategory(category: string) {
     font-size: 14px;
     border-radius: 5px;
     padding: 5px 10px;
-    background-color: #ffffff1a;
+    background-color: #0000000d;
     color: black;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .dark .cat-slider .categ {
     background-color: #ffffff1a;
-    color: white;
+    color: #f1f1f1;
 }
 
 .categ.active {
