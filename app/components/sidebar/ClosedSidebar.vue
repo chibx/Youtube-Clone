@@ -18,6 +18,7 @@ import { Button as UiButton } from "@/components/ui/button";
 import { useUser } from "~/stores/user";
 import { initials } from "~/utils/utils";
 import { forYou } from "~/utils/sidebar";
+import SubscriptionDot from "@/components/SubscriptionDot.vue";
 
 const user = useUser();
 </script>
@@ -44,7 +45,7 @@ const user = useUser();
             </SidebarMenuItem>
 
             <SidebarMenuItem aria-label="Subscriptions" class="px-1 mt-1">
-                <HoverCard :close-delay="1000">
+                <HoverCard :close-delay="100" :open-delay="100">
                     <HoverCardTrigger as-child>
                         <SidebarMenuButton class="px-7 py-10" as-child>
                             <NuxtLink to="/subscriptions" class="flex flex-col gap-2.5 items-center justify-center">
@@ -64,7 +65,9 @@ const user = useUser();
                             <Separator class="my-1.5" />
                             <!-- <CardContent> -->
                             <div class="flex flex-col gap-1.5">
-                                <UiButton v-for="sub in user.subs" @click="$router.push(`/channel/${sub.channelId}`)" :key="sub.name" class="w-full cursor-pointer items-center justify-start rounded-none py-6 bg-transparent dark:hover:bg-white/20 hover:bg-gray-100 dark:text-white/80 text-black/80">
+                                <UiButton v-for="sub in user.subs" @click="$router.push(`/channel/${sub.channelId}`)"
+                                    :key="sub.name"
+                                    class="w-full cursor-pointer items-center justify-start rounded-none py-6 bg-transparent dark:hover:bg-white/20 hover:bg-gray-100 dark:text-white/80 text-black/80">
                                     <Avatar class="h-7 w-7">
                                         <AvatarImage :src="sub.imageUrl" :alt="sub.name" />
                                         <AvatarFallback>{{ initials(sub.name) }}</AvatarFallback>
@@ -83,7 +86,7 @@ const user = useUser();
             </SidebarMenuItem>
 
             <SidebarMenuItem aria-label="You" class="px-1 mt-1">
-                <HoverCard :close-delay="1000">
+                <HoverCard :close-delay="100" :open-delay="100">
                     <HoverCardTrigger as-child>
                         <SidebarMenuButton class="px-7 py-10" as-child>
                             <NuxtLink to="/feed/you" class="flex flex-col gap-2.5 items-center justify-center">
@@ -103,7 +106,8 @@ const user = useUser();
                             <Separator class="my-1.5" />
                             <!-- <CardContent> -->
                             <div class="flex flex-col gap-1.5">
-                                <UiButton as-child v-for="item in forYou" :key="item.title" class="w-full px-5 py-5 items-center justify-start rounded-none bg-transparent dark:hover:bg-white/20 hover:bg-gray-100 dark:text-white/80 text-black/80">
+                                <UiButton as-child v-for="item in forYou" :key="item.title"
+                                    class="w-full px-5 py-5 items-center justify-start rounded-none bg-transparent dark:hover:bg-white/20 hover:bg-gray-100 dark:text-white/80 text-black/80">
                                     <NuxtLink :to="item.url" class="w-full flex items-center gap-2.5">
                                         <component :is="item.icon" />
                                         {{ item.title }}

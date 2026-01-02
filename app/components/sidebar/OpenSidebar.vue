@@ -18,63 +18,61 @@ import LastSection from "@/components/sidebar/LastSection.vue";
 import { sidebarHeader } from "~/utils/sidebar";
 
 
-const sidebarData = {
-    sidebarHeader,
-    // toExplore: computed(() => {
-    //     return expandedSections.toExplore ? toExplore : toExplore.slice(0, 3);
-    // }),
-    // forYou: computed(() => {
-    //     return expandedSections.forYou ? forYou : forYou.slice(0, 3);
-    // }),
-    // moreFromYT: computed(() => {
-    //     return expandedSections.moreFromYT ? moreFromYT : moreFromYT.slice(0, 3);
-    // }),
-}; 
+// const sidebarData = {
+//     sidebarHeader,
+//     // toExplore: computed(() => {
+//     //     return expandedSections.toExplore ? toExplore : toExplore.slice(0, 3);
+//     // }),
+//     // forYou: computed(() => {
+//     //     return expandedSections.forYou ? forYou : forYou.slice(0, 3);
+//     // }),
+//     // moreFromYT: computed(() => {
+//     //     return expandedSections.moreFromYT ? moreFromYT : moreFromYT.slice(0, 3);
+//     // }),
+// }; 
 </script>
 
 <template>
- <SidebarContent class="sidebar-content overflow-x-hidden">
-            <!-- Header: Did not use SidebarHeader because of the scroll affecting the content only -->
-            <SidebarGroup>
-                <SidebarGroupContent>
-                    <SidebarMenu>
-                        <SidebarMenuItem v-for="item in sidebarData.sidebarHeader" :key="item.title">
-                            <SidebarMenuButton class="p-2.5 py-5" as-child>
-                                <NuxtLink :to="item.url" class="flex gap-2.5 items-center">
-                                    <component :is="item.icon" />
-                                    <span>{{ item.title }}</span>
-                                </NuxtLink>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    </SidebarMenu>
-                </SidebarGroupContent>
-            </SidebarGroup>
-            <SidebarSeparator />
-            <!-- Subscriptions -->
-            <Subscription />
-            <SidebarSeparator />
+    <SidebarContent class="sidebar-content">
+        <!-- Header: Did not use SidebarHeader because of the scroll affecting the content only -->
+        <SidebarGroup>
+            <SidebarGroupContent>
+                <SidebarMenu>
+                    <SidebarMenuItem v-for="item in sidebarHeader" :key="item.title">
+                        <SidebarMenuButton class="p-2.5 py-5" as-child>
+                            <NuxtLink :to="item.url" class="flex gap-2.5 items-center">
+                                <component :is="item.icon" />
+                                <span>{{ item.title }}</span>
+                            </NuxtLink>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarSeparator />
+        <!-- Subscriptions -->
+        <Subscription />
+        <SidebarSeparator />
 
-            <!-- You Feed -->
-            <ForYou />
-            <SidebarSeparator />
+        <!-- You Feed -->
+        <ForYou />
+        <SidebarSeparator />
 
-            <!-- Explore -->
-            <ToExplore />
-            <SidebarSeparator />
+        <!-- Explore -->
+        <ToExplore />
+        <SidebarSeparator />
 
-            <!-- More From YouTube -->
-            <MoreFromYT />
-            <SidebarSeparator />
+        <!-- More From YouTube -->
+        <MoreFromYT />
+        <SidebarSeparator />
 
-            <!-- Settings and so -->
-            <MySidebarExtra />
-            <SidebarSeparator />
+        <!-- Settings and so -->
+        <MySidebarExtra />
+        <SidebarSeparator />
 
-            <!-- Footer kinda -->
-            <LastSection />
-        </SidebarContent>
+        <!-- Footer kinda -->
+        <LastSection />
+    </SidebarContent>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -19,10 +19,12 @@ export function randomSubscriptions(): Subscription[] {
 export const useUser = defineStore("user", () => {
   const id = ref<string>();
   const subs = shallowRef<Subscription[]>([]);
+  const isSubsLoading = ref(true)
 
   return {
     id,
     subs,
+    isSubsLoading,
   };
 });
 

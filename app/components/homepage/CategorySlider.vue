@@ -6,7 +6,7 @@ const props = defineProps<{ categories: string[] }>()
 const [emblaRef, emblaApi] = emblaCarouselVue({ loop: false })
 
 const activeCategory = ref<string | null>("All")
-const el = inject<Ref<HTMLElement | null>>("el")
+// const el = inject<Ref<HTMLElement | null>>("el")
 
 function setActiveCategory(category: string) {
     activeCategory.value = category
@@ -41,14 +41,15 @@ function setActiveCategory(category: string) {
     font-size: 14px;
     border-radius: 5px;
     padding: 5px 10px;
-    background-color: #ffffff1a;
+    background-color: #0000000d;
     color: black;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .dark .cat-slider .categ {
     background-color: #ffffff1a;
-    color: white;
+    color: #f1f1f1;
 }
 
 .categ.active {
