@@ -33,7 +33,7 @@ import { sidebarHeader } from "~/utils/sidebar";
 </script>
 
 <template>
-    <SidebarContent class="sidebar-content overflow-x-hidden">
+    <SidebarContent class="sidebar-content">
         <!-- Header: Did not use SidebarHeader because of the scroll affecting the content only -->
         <SidebarGroup>
             <SidebarGroupContent>
