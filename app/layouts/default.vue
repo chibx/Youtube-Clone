@@ -28,7 +28,6 @@ const sidebarWidth = computed(() => {
 
 watch(isWideForOpenSidebar, () => {
     let state = sidebarState.value;
-    console.log("Yo")
     if (isWideForOpenSidebar.value) {
         if (state & SidebarState.Sheet) {
             // Off the Sidebar Sheet implementation

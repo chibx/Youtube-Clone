@@ -48,7 +48,7 @@ function togSidebar() {
         </div>
 
         <div class="flex gap-5">
-            <LazyDesktopSearch />
+            <LazyDesktopSearch v-model:search="searchText" />
 
             <div
                 class="cursor-pointer rounded-full p-2.5 border border-gray-300 hover:bg-gray-300/40 dark:border-none text-black dark:bg-gray-500/20">

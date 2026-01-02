@@ -23,29 +23,29 @@ onMounted(() => {
         <HomeSkeleton v-if="!initialDataLoaded" />
         <ClientOnly v-else>
             <!-- <template> -->
-                <div class="top-videos">
-                    <VideoCard :video-id="'default'" :color="randomColor()" />
-                    <VideoCard :video-id="'default'" :color="randomColor()" />
+            <div class="top-videos">
+                <VideoCard :video-id="'default'" :color="randomColor()" />
+                <VideoCard :video-id="'default'" :color="randomColor()" />
+            </div>
+
+            <section class="mt-6">
+                <div class="flex items-center gap-2 ml-10">
+                    <YTShortIcon />
+                    <h2 class="text-2xl font-semibold">Shorts</h2>
                 </div>
 
-                <section class="mt-6">
-                    <div class="flex items-center gap-2 ml-10">
-                        <YTShortIcon />
-                        <h2 class="text-2xl font-semibold">Shorts</h2>
-                    </div>
+                <!-- Add shorts grid here later -->
 
-                    <!-- Add shorts grid here later -->
-
-                    <div class="shorts-container mt-10">
-                        <div class="flex gap-2.5">
-                            <ShortsCard class="max-w-80" />
-                            <ShortsCard class="max-w-80" />
-                            <ShortsCard class="max-w-80" />
-                            <ShortsCard class="max-w-80" />
-                            <ShortsCard class="max-w-80" />
-                        </div>
+                <div class="shorts-container mt-10">
+                    <div class="flex gap-3">
+                        <ShortsCard class="max-w-75" />
+                        <ShortsCard class="max-w-75" />
+                        <ShortsCard class="max-w-75" />
+                        <ShortsCard class="max-w-75" />
+                        <ShortsCard class="max-w-75" />
                     </div>
-                </section>
+                </div>
+            </section>
             <!-- </template> -->
         </ClientOnly>
     </div>
